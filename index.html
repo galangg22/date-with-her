@@ -5,44 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Kencan Lucu</title>
     <style>
+        :root {
+            /* Tema default */
+            --background-color: #e0bccc;
+            --container-bg-color: #f8f1f3;
+            --primary-color: #ebc5bd;
+            --text-color: #6e6e5f;
+            --button-color: #ebc5bd;
+            --button-hover-color: #e0bccc;
+        }
+
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffebcd;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
             text-align: center;
-            animation: backgroundAnimation 10s infinite alternate;
-            overflow: hidden; /* Menyembunyikan overflow untuk animasi partikel */
+            overflow: hidden;
         }
         
-        @keyframes backgroundAnimation {
-            0% { background-color: #ffebcd; }
-            50% { background-color: #ffcccb; }
-            100% { background-color: #ffe4e1; }
-        }
-
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: var(--container-bg-color);
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             animation: bounce 2s infinite alternate;
-            position: relative; /* Agar efek cahaya berfungsi dengan baik */
-            overflow: hidden; /* Menyembunyikan overflow untuk efek cahaya */
-        }
-
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
+            position: relative;
+            overflow: hidden;
         }
 
         h1 {
-            color: #ff69b4;
+            color: var(--primary-color);
             font-size: 2.5em;
-            text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7); /* Menambahkan bayangan pada teks */
+            text-shadow: 2px 2px 5px rgba(235, 197, 189, 0.7);
         }
 
         .form-field {
@@ -57,49 +55,66 @@
         input, select {
             width: 100%;
             padding: 10px;
-            border: 2px solid #ff69b4;
+            border: 2px solid var(--primary-color);
             border-radius: 5px;
             font-size: 1em;
+            color: var(--text-color);
         }
 
+        /* Tombol utama dengan bentuk lebih keren */
         button {
-            padding: 10px 20px;
-            background-color: #ff69b4;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            padding: 12px 25px;
             font-size: 1.2em;
+            color: white;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ebc5bd);
+            border: none;
+            border-radius: 50px; /* Bentuk lebih bulat */
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s; /* Menambahkan transform pada hover */
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 8px 15px rgba(255, 20, 147, 0.4);
+            background-size: 200% 200%;
+            animation: gradientAnimation 5s ease infinite; /* Animasi gradien bergerak */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         button:hover {
-            background-color: #ff1493;
-            transform: scale(1.05); /* Efek zoom saat hover */
+            transform: scale(1.1);
+            box-shadow: 0px 15px 25px rgba(255, 20, 147, 0.6); /* Glow effect */
         }
 
         .footer {
             margin-top: 20px;
             font-size: 0.8em;
-            color: #555;
+            color: var(--text-color);
         }
 
-        /* Animasi cahaya */
-        .light {
+        .theme-button {
             position: absolute;
-            border-radius: 50%;
-            animation: lightAnimation 2s infinite alternate;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ebc5bd);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 8px 15px rgba(255, 20, 147, 0.4);
+            background-size: 200% 200%;
+            animation: gradientAnimation 5s ease infinite;
         }
 
-        @keyframes lightAnimation {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.5); opacity: 0; }
+        .theme-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 25px rgba(255, 20, 147, 0.6);
         }
-
-        .light-1 { top: 20%; left: 10%; width: 60px; height: 60px; background: rgba(255, 105, 180, 0.5); }
-        .light-2 { top: 60%; right: 15%; width: 80px; height: 80px; background: rgba(255, 215, 0, 0.5); }
-        .light-3 { bottom: 10%; left: 20%; width: 40px; height: 40px; background: rgba(0, 191, 255, 0.5); }
-
     </style>
 </head>
 <body>
@@ -122,7 +137,7 @@
                 <label for="location">Tempat:</label>
                 <select id="location" name="location" required>
                     <option value="" disabled selected>Pilih tempat</option>
-                    <option value="ngopi disekitar sidoarjo">ngopi di sidoarjo </option>
+                    <option value="ngopi disekitar sidoarjo">ngopi di sidoarjo</option>
                     <option value="wisata alam">wisata alam ke arah malang dan sekitar</option>
                     <option value="nongkrong malang">nongkrong ke arah malang dan sekitar</option>
                     <option value="nongkrong di surabaya">nongkrong di Surabaya</option>
@@ -136,7 +151,7 @@
                     <option value="Casual">Casual</option>
                     <option value="santai tapi keren">santai tapi keren</option>
                     <option value="Santai celana pendek">santai celana pendek</option>
-                    <option value="rapi bersepatu">rapi bersepatu </option>
+                    <option value="rapi bersepatu">rapi bersepatu</option>
                 </select>
             </div>
 
@@ -147,10 +162,41 @@
             <p>🍭 untuk perjalanan yang penuh cinta! 🍭</p>
         </div>
 
-        <!-- Efek cahaya -->
-        <div class="light light-1"></div>
-        <div class="light light-2"></div>
-        <div class="light light-3"></div>
+        <button class="theme-button" onclick="changeTheme()">Ganti Tema</button>
     </div>
+
+    <script>
+        const themes = [
+            {
+                background: "#e0bccc",
+                containerBg: "#f8f1f3",
+                primary: "#ebc5bd",
+                text: "#6e6e5f",
+                button: "#ebc5bd",
+                buttonHover: "#e0bccc"
+            },
+            {
+                background: "#6e6e5f",
+                containerBg: "#e0bccc",
+                primary: "#f8f1f3",
+                text: "#ffffff",
+                button: "#ff69b4",
+                buttonHover: "#ff1493"
+            }
+        ];
+
+        let currentTheme = 0;
+        
+        function changeTheme() {
+            currentTheme = (currentTheme + 1) % themes.length;
+            const theme = themes[currentTheme];
+            document.documentElement.style.setProperty('--background-color', theme.background);
+            document.documentElement.style.setProperty('--container-bg-color', theme.containerBg);
+            document.documentElement.style.setProperty('--primary-color', theme.primary);
+            document.documentElement.style.setProperty('--text-color', theme.text);
+            document.documentElement.style.setProperty('--button-color', theme.button);
+            document.documentElement.style.setProperty('--button-hover-color', theme.buttonHover);
+        }
+    </script>
 </body>
 </html>
