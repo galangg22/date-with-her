@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Kencan Lucu</title>
+    <style>
+        :root {
+            /* Tema default */
+            --background-color: #e0bccc;
+            --container-bg-color: #f8f1f3;
+            --primary-color: #ebc5bd;
+            --text-color: #6e6e5f;
+            --button-color: #ebc5bd;
+            --button-hover-color: #e0bccc;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: var(--container-bg-color);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: bounce 2s infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(235, 197, 189, 0.7);
+        }
+
+        .form-field {
+            margin: 15px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        /* Tombol utama dengan bentuk lebih keren */
+        button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ebc5bd);
+            border: none;
+            border-radius: 50px; /* Bentuk lebih bulat */
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 8px 15px rgba(255, 20, 147, 0.4);
+            background-size: 200% 200%;
+            animation: gradientAnimation 5s ease infinite; /* Animasi gradien bergerak */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 25px rgba(255, 20, 147, 0.6); /* Glow effect */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: var(--text-color);
+        }
+
+        .theme-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ebc5bd);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 8px 15px rgba(255, 20, 147, 0.4);
+            background-size: 200% 200%;
+            animation: gradientAnimation 5s ease infinite;
+        }
+
+        .theme-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 25px rgba(255, 20, 147, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Undangan Kencan untuk Zidnaa!</h1>
+        <p>Hai cantikk! Siap buat kencan yang seruu gaa? Pilih detailnya di bawah yaa!</p>
+        
+        <form action="https://formspree.io/f/mldeeayz" method="POST">
+            <div class="form-field">
+                <label for="date">Tanggal:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-field">
+                <label for="time">Waktu:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-field">
+                <label for="location">Tempat:</label>
+                <select id="location" name="location" required>
+                    <option value="" disabled selected>Pilih tempat</option>
+                    <option value="ngopi disekitar sidoarjo">ngopi di sidoarjo</option>
+                    <option value="wisata alam">wisata alam ke arah malang dan sekitar</option>
+                    <option value="nongkrong malang">nongkrong ke arah malang dan sekitar</option>
+                    <option value="nongkrong di surabaya">nongkrong di Surabaya</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="outfit">Outfit:</label>
+                <select id="outfit" name="outfit" required>
+                    <option value="" disabled selected>Pilih outfit</option>
+                    <option value="Casual">Casual</option>
+                    <option value="santai tapi keren">santai tapi keren</option>
+                    <option value="Santai celana pendek">santai celana pendek</option>
+                    <option value="rapi bersepatu">rapi bersepatu</option>
+                </select>
+            </div>
+
+            <button type="submit">Kirim Undangan!</button>
+        </form>
+        
+        <div class="footer">
+            <p>🍭 untuk perjalanan yang penuh cinta! 🍭</p>
+        </div>
+
+        <button class="theme-button" onclick="changeTheme()">Ganti Tema</button>
+    </div>
+
+    <script>
+        const themes = [
+            {
+                background: "#e0bccc",
+                containerBg: "#f8f1f3",
+                primary: "#ebc5bd",
+                text: "#6e6e5f",
+                button: "#ebc5bd",
+                buttonHover: "#e0bccc"
+            },
+            {
+                background: "#6e6e5f",
+                containerBg: "#e0bccc",
+                primary: "#f8f1f3",
+                text: "#ffffff",
+                button: "#ff69b4",
+                buttonHover: "#ff1493"
+            }
+        ];
+
+        let currentTheme = 0;
+        
+        function changeTheme() {
+            currentTheme = (currentTheme + 1) % themes.length;
+            const theme = themes[currentTheme];
+            document.documentElement.style.setProperty('--background-color', theme.background);
+            document.documentElement.style.setProperty('--container-bg-color', theme.containerBg);
+            document.documentElement.style.setProperty('--primary-color', theme.primary);
+            document.documentElement.style.setProperty('--text-color', theme.text);
+            document.documentElement.style.setProperty('--button-color', theme.button);
+            document.documentElement.style.setProperty('--button-hover-color', theme.buttonHover);
+        }
+    </script>
+</body>
+</html>
